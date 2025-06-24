@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+.glow {
+  filter: drop-shadow(0 0 8px #00f0ff) drop-shadow(0 0 15px #00f0ff);
+  border-radius: 50%;
+}
+
+/* Twinkling stars */
+.star {
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 2s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.4);
+  }
+}
+
+/* Shooting stars */
+.shooting-star {
+  position: absolute;
+  width: 320px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(-10deg, white, rgba(255, 255, 255, 0));
+  animation: shoot 1.5s ease-out forwards;
+}
+
+@keyframes shoot {
+  from {
+    transform: translateX(0) translateY(0) rotate(30deg);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(200px) translateY(100px) rotate(30deg);
+    opacity: 0;
+  }
+}
+
+.tilt-neon {
+  font-family: "Tilt Neon", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "XROT" 0, "YROT" 0;
+  color: rgb(225, 228, 228);
+  text-shadow: 0 0 2px rgb(0, 145, 255), 0 0 5px rgb(0, 145, 255), 0 0 10px #0ff,
+    0 0 20px #0ff;
+
+  animation: flicker 2s infinite;
+}
+
+@keyframes flicker {
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 2px rgb(218, 160, 2), 0 0 5px rgb(122, 4, 154),
+      0 0 10px #0ff, 0 0 20px #0ff;
+  }
+
+  20%,
+  22%,
+  24%,
+  55% {
+    opacity: 0.4;
+    text-shadow: none;
+  }
+}
+
+R :root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #c3bbbb;
+  }
+}
+
+@layer utilities {
+  .tilt-neon {
+    text-shadow: 0 0 5px #0b9caf, 0 0 5px #0b9caf, 0 0 10px #0b9caf,
+      0 0 30px #0b9caf;
+  }
+
+  @keyframes pop-flicker {
+    0% {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.6;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes flicker {
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+      opacity: 1;
+    }
+    20%,
+    24%,
+    55% {
+      opacity: 0.6;
+    }
+  }
+
+  .animate-pop-flicker {
+    animation: pop-flicker 0.8s ease-out forwards, flicker 2.5s infinite;
+  }
+}
