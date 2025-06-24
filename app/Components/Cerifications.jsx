@@ -22,24 +22,24 @@ const AboutSection = () => {
       year: "2023 - 2025",
       image: "/MCA.jpg",
     },
-    {
-      title: "Bachelor of Arts in History",
-      institution: "YCMOU Open University",
-      year: "2020 - 2023",
-      image: "/ycmop-logo.png",
-    },
-    {
-      title: "Higher Secondary Certificate in Science",
-      institution: "Aarambh High School",
-      year: "2011 - 2013",
-      image: "/higherSchool.jpg",
-    },
-    {
-      title: "Secondary School Certificate (SSC) ",
-      institution: "Nutan School",
-      year: "2010",
-      image: "/StateBoard.png",
-    },
+    // {
+    //   title: "Bachelor of Arts in History",
+    //   institution: "YCMOU Open University",
+    //   year: "2020 - 2023",
+    //   image: "/ycmop-logo.png",
+    // },
+    // {
+    //   title: "Higher Secondary Certificate in Science",
+    //   institution: "Aarambh High School",
+    //   year: "2011 - 2013",
+    //   image: "/higherSchool.jpg",
+    // },
+    // {
+    //   title: "Secondary School Certificate (SSC) ",
+    //   institution: "Nutan School",
+    //   year: "2010",
+    //   image: "/StateBoard.png",
+    // },
   ];
 
   const Internships = [
