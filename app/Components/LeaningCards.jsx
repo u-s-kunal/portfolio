@@ -3,16 +3,6 @@ import React from "react";
 
 const learningSkills = [
   {
-    title: "Next.js",
-    image: "https://cdn.worldvectorlogo.com/logos/next-js.svg",
-    description: "React framework for server-side rendering and routing.",
-  },
-  {
-    title: "MongoDB",
-    image: "https://cdn.worldvectorlogo.com/logos/mongodb-icon-1.svg",
-    description: "NoSQL database for scalable and flexible data storage.",
-  },
-  {
     title: "MySQL",
     image: "https://img.icons8.com/fluency/240/mysql-logo.png",
     description: "Relational database system for structured data storage.",

@@ -79,11 +79,11 @@ const SupportMePage = () => {
         </div>
       )}
       <div className="flex min-h-screen flex-col items-center justify-center text-white ">
-        <h1 className="text-6xl mb-8 font-bold tilt-neon ">
-          ☕ Support My Work
+        <h1 className="sm:text-6xl text-4xl mb-8 font-bold tilt-neon text-center ">
+          Support My Work
         </h1>
 
-        <p className="text-center text-2xl text-gray-300 mb-10">
+        <p className="text-center sm:2xl p-2 text-1xl text-gray-300 mb-10">
           If you want to help me on my Journey to be and Software Developer!
           Please Buy me a Coffee 💻☕ ...!!!
         </p>

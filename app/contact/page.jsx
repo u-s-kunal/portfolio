@@ -71,8 +71,10 @@ const ContactMePage = () => {
 
   return (
     <div className="min-h-screen m-8">
-      <div className="max-w-auto mx-auto p-6 text-center">
-        <p className="tilt-neon text-5xl mb-6 text-white">📬 Contact me</p>
+      <div className="max-w-auto mx-auto p-6 ">
+        <p className="text-center tilt-neon text-5xl sm:mb-4 text-white">
+          Contact me
+        </p>
       </div>
 
       {showSuccess && (

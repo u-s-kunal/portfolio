@@ -28,6 +28,16 @@ const skills = [
     description: "Powerful JavaScript library for building UIs and SPAs.",
   },
   {
+    title: "MongoDB",
+    image: "https://cdn.worldvectorlogo.com/logos/mongodb-icon-1.svg",
+    description: "NoSQL database for scalable and flexible data storage.",
+  },
+  {
+    title: "Next.js",
+    image: "https://cdn.worldvectorlogo.com/logos/next-js.svg",
+    description: "React framework for server-side rendering and routing.",
+  },
+  {
     title: "Git",
     image: "https://cdn-icons-png.flaticon.com/512/2111/2111288.png",
     description: "Version control system to manage code efficiently.",
