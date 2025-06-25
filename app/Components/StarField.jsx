@@ -7,7 +7,7 @@ const StarField = ({ count = 300, className = "" }) => {
   const [shootingStars, setShootingStars] = useState([]);
 
   useEffect(() => {
-    // Regular static stars
+    // Static stars
     const staticStars = Array.from({ length: count }, () => ({
       top: `${Math.random() * 100}%`,
       left: `${Math.random() * 100}%`,
@@ -25,20 +25,24 @@ const StarField = ({ count = 300, className = "" }) => {
 
       setShootingStars((prev) => [...prev, newShootingStar]);
 
-      // Remove after animation
       setTimeout(() => {
         setShootingStars((prev) =>
           prev.filter((star) => star.id !== newShootingStar.id)
         );
       }, 1500);
-    }, 3000); // one every 5s
+    }, 3000); // one every 3 seconds
 
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div
-      className={`fixed inset-0 z-[-50] h-full w-full overflow-hidden ${className}`}
+      className={`fixed inset-0 z-0 h-full w-full overflow-hidden ${className}`}
+      style={{
+        transform: "translateZ(0)",
+        WebkitTransform: "translateZ(0)",
+        willChange: "transform",
+      }}
     >
       {/* Static Stars */}
       {stars.map((star, index) => (
@@ -62,6 +66,7 @@ const StarField = ({ count = 300, className = "" }) => {
           style={{
             top: star.top,
             left: star.left,
+            position: "absolute",
           }}
         />
       ))}
