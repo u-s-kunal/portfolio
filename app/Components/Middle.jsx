@@ -17,10 +17,10 @@ function Middle() {
     <div className="p-4  min-h-[80vh] flex items-center text-center justify-center flex-col relative z-10 mx-auto ">
       {/* Floating Coffee */}
       <Image
-        src="/coffee.gif"
-        className="mb-6 sm:w-[200px] w-[170px] drop-shadow-lg"
-        width={140}
-        height={100}
+        src="/kunal.png"
+        className="mb-6   rounded-full drop-shadow-neutral-50"
+        width={240}
+        height={200}
         alt="Coffee GIF"
       />
       {/* Main Heading */}
