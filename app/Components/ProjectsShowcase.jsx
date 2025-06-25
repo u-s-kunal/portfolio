@@ -6,7 +6,7 @@ import ProjectCard from "./ProjectCard";
 const projects = [
   {
     title: "Music App",
-    cagtegory: "Applications",
+    category: "Applications",
     description:
       "A modern music streaming app with playlist and search functionality.",
     image:
@@ -15,7 +15,7 @@ const projects = [
   },
   {
     title: "Password Manager",
-    cagtegory: "Applications",
+    category: "Applications",
     description: "Secure password storage using encryption and local storage.",
     image:
       "https://cdn.pixabay.com/photo/2019/01/17/19/11/registration-3938434_960_720.jpg",
@@ -23,16 +23,15 @@ const projects = [
   },
   {
     title: "Car Game",
-    cagtegory: "Games",
-
-    description: "Simple racing game using HTML5 canvas and JavaScript.",
+    category: "Games",
+    description: "Simple racing game using HTML5 Canvas and JavaScript.",
     image:
       "https://cdn.pixabay.com/photo/2019/08/09/06/12/car-racing-4394450_960_720.jpg",
     link: "https://u-s-kunal.github.io/cargame/",
   },
   {
     title: "Currency Converter",
-    cagtegory: "Applications",
+    category: "Applications",
     description: "Live currency converter using real-time exchange rates.",
     image:
       "https://cdn.pixabay.com/photo/2012/12/11/21/28/mixture-69523_960_720.jpg",
@@ -40,105 +39,98 @@ const projects = [
   },
   {
     title: "E-Commerce",
-    cagtegory: "Websites",
+    category: "Websites",
     description:
-      "Full-featured e-commerce site with cart, product listing and checkout.",
+      "Full-featured e-commerce site with cart, product listing, and checkout.",
     image:
       "https://cdn.pixabay.com/photo/2019/10/07/12/08/online-shopping-4532460_960_720.jpg",
     link: "https://u-s-kunal.github.io/e-commerce/",
   },
   {
     title: "Weather App",
-    cagtegory: "Applications",
-    description: "Check live Weather updates with this web link",
+    category: "Applications",
+    description: "Check live weather updates with this app.",
     image:
       "https://cdn.pixabay.com/photo/2014/10/22/18/49/weather-vane-498740_960_720.jpg",
     link: "https://u-s-kunal.github.io/weatherApp/",
   },
   {
     title: "Food Delivery",
-    cagtegory: "Websites",
-
+    category: "Websites",
     description:
-      "This is Frond-end for the Food app I made few years Back not fully functional as i was learning HTML ,CSS and JS etc. But, you can check the UI and design of page from my initial days",
+      "This is a front-end demo for a food app I built while learning HTML, CSS, and JS. It’s not fully functional, but shows my early UI design efforts.",
     image:
       "https://cdn.pixabay.com/photo/2022/06/14/18/58/beef-burger-7262651_960_720.jpg",
     link: "https://u-s-kunal.github.io/food_delivery/",
   },
   {
     title: "Wild Life",
-    cagtegory: "Websites",
-
+    category: "Websites",
     description:
-      "This is Frond-end for the Food app I made few years Back not fully functional as i was learning HTML ,CSS . But, you can check the UI and design of page from my initial days",
+      "A front-end wildlife-themed site built while learning HTML and CSS. It showcases UI design from my initial practice.",
     image:
       "https://cdn.pixabay.com/photo/2024/02/02/00/57/ai-generated-8547056_960_720.jpg",
     link: "https://u-s-kunal.github.io/wildlife/",
   },
   {
     title: "Law",
-    cagtegory: "Websites",
-
+    category: "Websites",
     description:
-      "This is Frond-end for the Food app I made few years Back not fully functional as i was learning HTML ,CSS . But, you can check the UI and design of page from my initial days",
+      "A basic front-end site related to law, made during my HTML and CSS learning phase. Focuses on layout and UI design.",
     image:
       "https://cdn.pixabay.com/photo/2025/03/05/15/04/verdict-9448861_960_720.jpg",
     link: "https://u-s-kunal.github.io/law/",
   },
   {
     title: "Library App",
-    cagtegory: "Applications",
+    category: "Applications",
     description:
-      "This is simple App to store record of the books that you have, I was leaning storing data to localStorage() and fetching that data",
+      "A simple app to store records of books using localStorage. Created while learning data persistence in JavaScript.",
     image:
       "https://cdn.pixabay.com/photo/2022/12/27/00/46/girl-7680032_960_720.png",
     link: "https://u-s-kunal.github.io/LibraryApp/",
   },
   {
     title: "Snake Game",
-    cagtegory: "Games",
-
+    category: "Games",
     description:
-      "Made it while i was leaning JS this game basically use switch cases and windows objects to detect location and math.random() also",
+      "Created while learning JS. Uses switch cases, window object, and Math.random() for gameplay logic.",
     image:
       "https://cdn.pixabay.com/photo/2024/08/31/07/01/snake-9010653_960_720.jpg",
     link: "https://u-s-kunal.github.io/snakegame/",
   },
   {
     title: "Mini Mario",
-    cagtegory: "Games",
-
+    category: "Games",
     description:
-      "Made it while i was leaning JS this game basically a copy on famous Dinosour game ofl crome i just edited its theme to the mario",
+      "Built using JS. Inspired by Chrome’s Dinosaur Game, but themed like Mario.",
     image:
       "https://cdn.pixabay.com/photo/2020/05/26/03/17/super-mario-5221243_960_720.jpg",
     link: "https://u-s-kunal.github.io/mario/",
   },
   {
     title: "Coffee Shop",
-    cagtegory: "Websites",
-
+    category: "Websites",
     description:
-      "Made it while i was leaning CSS here i used and practiced many CSS tools and tricks like transformation and animation etc.",
+      "Created while learning CSS. Includes animations and transformations to showcase UI design.",
     image:
       "https://cdn.pixabay.com/photo/2018/01/25/20/14/coffee-3106958_960_720.png",
     link: "https://u-s-kunal.github.io/Coffeeshop/",
   },
   {
     title: "Interior",
-    cagtegory: "Websites",
-
+    category: "Websites",
     description:
-      "Made it while i was leaning CSS here i used Flex-box and google fonts its a demo of my design ideas",
+      "Interior design-themed demo built with CSS Flexbox and Google Fonts to present layout ideas.",
     image:
       "https://cdn.pixabay.com/photo/2025/03/04/08/44/ai-generated-9445743_960_720.jpg",
     link: "https://u-s-kunal.github.io/interior/",
   },
   {
     title: "Expenses Calculator",
-    cagtegory: "Applications",
+    category: "Applications",
     description:
-      "react js Application which i Made few years back as i was leaning the react for the first time. use useState hook and localStorage.",
+      "React JS application created while learning React. Uses useState hook and localStorage.",
     image:
       "https://cdn.pixabay.com/photo/2019/10/18/19/51/financial-4560047_960_720.jpg",
     link: "https://u-s-kunal.github.io/expensesCal/",
@@ -147,16 +139,16 @@ const projects = [
 
 const ProjectsShowcase = () => {
   return (
-    <div id="projects" className="text-white text-center p-6  ">
+    <div id="projects" className="text-white text-center p-6">
       <h2 className="text-6xl m-6 tilt-neon">My Projects</h2>
 
-      <div className="text-center bg-amber-700 mt-8 w-full   rounded-3xl p-2">
-        <h2 className="text-2xl flex  mx-4   ">Web Applications</h2>
+      <div className="text-center bg-amber-700 mt-8 w-full rounded-3xl p-2">
+        <h2 className="text-2xl mx-4">Web Applications</h2>
       </div>
       <div className="gap-1 m-auto flex flex-wrap justify-center items-stretch">
         {projects.map(
           (project, index) =>
-            project.cagtegory == "Applications" && (
+            project.category === "Applications" && (
               <ProjectCard
                 key={project.title}
                 link={project.link}
@@ -167,13 +159,14 @@ const ProjectsShowcase = () => {
             )
         )}
       </div>
-      <div className="text-center bg-gray-700 w-full mt-8  rounded-3xl p-2">
-        <h2 className="text-2xl flex  mx-4  ">Games</h2>
+
+      <div className="text-center bg-gray-700 w-full mt-8 rounded-3xl p-2">
+        <h2 className="text-2xl mx-4">Games</h2>
       </div>
       <div className="gap-1 m-auto flex flex-wrap justify-center items-stretch">
         {projects.map(
           (project, index) =>
-            project.cagtegory == "Games" && (
+            project.category === "Games" && (
               <ProjectCard
                 key={index}
                 link={project.link}
@@ -184,13 +177,14 @@ const ProjectsShowcase = () => {
             )
         )}
       </div>
-      <div className="text-center bg-green-700 w-full mt-8  rounded-3xl p-2">
-        <h2 className="text-2xl flex  mx-4  ">Web Designs</h2>
+
+      <div className="text-center bg-green-700 w-full mt-8 rounded-3xl p-2">
+        <h2 className="text-2xl mx-4">Web Designs</h2>
       </div>
       <div className="gap-1 m-auto flex flex-wrap justify-center items-stretch">
         {projects.map(
           (project, index) =>
-            project.cagtegory == "Websites" && (
+            project.category === "Websites" && (
               <ProjectCard
                 key={index}
                 link={project.link}

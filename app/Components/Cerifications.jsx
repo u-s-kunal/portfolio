@@ -46,7 +46,7 @@ const AboutSection = () => {
     {
       title: "Internship Letter",
       provider: "Seven Mentor",
-      year: "june 2025",
+      year: "June 2025",
       image: "/internshipletter.png",
     },
   ];

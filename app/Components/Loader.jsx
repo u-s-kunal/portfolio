@@ -4,7 +4,7 @@ import React from "react";
 const NeonLoader = ({ text = "Loading..." }) => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-black text-white">
-      <div className="relative w-60 h-32 mb-8">
+      <div className="relative w-40 h-22 sm:w-60 sm:h-32 mb-8">
         <svg viewBox="0 0 200 100" className="w-full h-full">
           <defs>
             {/* Blue glow applied to white stroke */}

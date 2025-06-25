@@ -32,7 +32,7 @@ function Middle() {
         MERN STACK DEVELOPER <span className="animate-pulse">🚀</span>
       </p>{" "}
       <p className="sm:text-2xl text-gray-200 font-mono mb-6">
-        MASTER IN COMPUTER APPLUCATIONS
+        MASTER IN COMPUTER APPLICATIONS
       </p>
       {/* Wavy Underline */}
       <div className="relative mb-4">
