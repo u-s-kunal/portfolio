@@ -30,17 +30,17 @@ const StarField = ({ count = 300, className = "" }) => {
           prev.filter((star) => star.id !== newShootingStar.id)
         );
       }, 1500);
-    }, 3000); // one every 3 seconds
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div
-      className={`fixed inset-0 z-0 h-full w-full overflow-hidden ${className}`}
+      className={`absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none -z-10 ${className}`}
       style={{
-        transform: "translateZ(0)",
-        WebkitTransform: "translateZ(0)",
+        transform: "translate3d(0, 0, 0)",
+        WebkitTransform: "translate3d(0, 0, 0)",
         willChange: "transform",
       }}
     >

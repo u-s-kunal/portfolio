@@ -21,8 +21,13 @@ export const metadata = {
 export default function Layout({ children }) {
   return (
     <html lang="en" className={tiltNeon.variable}>
-      <body className="bg-gray-900">
-        <StarField />
+      <body className="relative min-h-screen bg-black overflow-x-hidden">
+        {/* Background stars */}
+        <div className="fixed inset-0 -z-10">
+          <StarField />
+        </div>
+
+        {/* Foreground content */}
         <div className="relative z-10">
           <ClientLayout>
             <div className="sticky top-0 z-50">
