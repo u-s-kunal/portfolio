@@ -70,11 +70,9 @@ const ContactMePage = () => {
   };
 
   return (
-    <div className="min-h-screen m-8">
+    <div className="min-h-screen ">
       <div className="max-w-auto mx-auto p-6 ">
-        <p className="text-center tilt-neon text-5xl sm:mb-4 text-white">
-          Contact me
-        </p>
+        <p className="text-center tilt-neon text-5xl  text-white">Contact me</p>
       </div>
 
       {showSuccess && (
@@ -85,15 +83,19 @@ const ContactMePage = () => {
 
       <form onSubmit={handleSubmit}>
         <div className="flex justify-center">
-          <div className="w-full max-w-2xl space-y-5 p-8 rounded-2xl">
+          <div className="w-full max-w-2xl space-y-5 p-3 rounded-2xl text-white">
             {/* Name */}
+            <label htmlFor="name" className="block text-sm font-medium">
+              Name :
+            </label>
             <input
+              id="name"
               type="text"
               name="name"
               placeholder="Your Name"
               value={formData.name}
               onChange={handleChange}
-              className={`w-full p-3 border rounded-xl ${
+              className={`w-full p-3 border rounded-xl bg-transparent ${
                 errors.name ? "border-red-500" : "border-gray-300"
               }`}
             />
@@ -102,13 +104,17 @@ const ContactMePage = () => {
             )}
 
             {/* Email */}
+            <label htmlFor="email" className="block text-sm font-medium">
+              Email :
+            </label>
             <input
+              id="email"
               type="email"
               name="email"
               placeholder="Your Email"
               value={formData.email}
               onChange={handleChange}
-              className={`w-full p-3 border rounded-xl ${
+              className={`w-full p-3 border rounded-xl bg-transparent ${
                 errors.email ? "border-red-500" : "border-gray-300"
               }`}
             />
@@ -117,13 +123,17 @@ const ContactMePage = () => {
             )}
 
             {/* Subject */}
+            <label htmlFor="subject" className="block text-sm font-medium">
+              Subject :
+            </label>
             <input
+              id="subject"
               type="text"
               name="subject"
               placeholder="Subject"
               value={formData.subject}
               onChange={handleChange}
-              className={`w-full p-3 border rounded-xl ${
+              className={`w-full p-3 border rounded-xl bg-transparent ${
                 errors.subject ? "border-red-500" : "border-gray-300"
               }`}
             />
@@ -132,13 +142,17 @@ const ContactMePage = () => {
             )}
 
             {/* Message */}
+            <label htmlFor="message" className="block text-sm font-medium">
+              Message :
+            </label>
             <textarea
+              id="message"
               name="message"
               rows="5"
               placeholder="Your Message"
               value={formData.message}
               onChange={handleChange}
-              className={`w-full p-3 border rounded-xl ${
+              className={`w-full p-3 border rounded-xl bg-transparent ${
                 errors.message ? "border-red-500" : "border-gray-300"
               }`}
             />
@@ -151,11 +165,11 @@ const ContactMePage = () => {
               type="submit"
               disabled={isSubmitting}
               className={`w-full py-3 rounded-xl font-semibold transition 
-    ${
-      isSubmitting
-        ? "bg-gray-400 cursor-not-allowed"
-        : "bg-blue-600 hover:bg-blue-700 text-white"
-    }`}
+        ${
+          isSubmitting
+            ? "bg-gray-400 cursor-not-allowed"
+            : "bg-blue-600 hover:bg-blue-700 text-white"
+        }`}
             >
               {isSubmitting ? "Sending..." : "Send Message"}
             </button>
