@@ -44,7 +44,7 @@ const AboutSection = () => {
 
   const Internships = [
     {
-      title: "Internship Letter",
+      title: "MERN STACK",
       provider: "Seven Mentor",
       year: "June 2025",
       image: "/internshipletter.png",
@@ -63,6 +63,12 @@ const AboutSection = () => {
       provider: "I-TECH",
       year: "2022",
       image: "/Front-end-certificate.png",
+    },
+    {
+      title: "Getting Started with Enterprise Data Science",
+      provider: "IBM",
+      year: "2024",
+      image: "/IBM CERTIFICATE.png",
     },
   ];
 
