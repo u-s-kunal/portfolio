@@ -110,7 +110,7 @@ export default function Navbar() {
                 <Link
                   href="https://payments.cashfree.com/forms/codewithkunal"
                   target="_blank"
-                  className="group relative inline-flex items-center justify-center sm:px-3 px-3 sm:py-2 py-1 overflow-hidden font-semibold rounded-full text-white shadow-lg transition-all duration-300 ease-in-out bg-gradient-to-r from-yellow-500 via-orange-500 to-yellow-600 hover:from-yellow-400 hover:via-orange-400 hover:to-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 dark:focus:ring-yellow-800"
+                  className="group relative inline-flex items-center justify-center sm:px-3 px-3 sm:py-2 py-1 overflow-hidden font-semibold rounded-xl text-white shadow-lg transition-all duration-300 ease-in-out bg-gradient-to-r from-yellow-500 via-orange-500 to-yellow-600 hover:from-yellow-400 hover:via-orange-400 hover:to-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 dark:focus:ring-yellow-800"
                 >
                   <span className="absolute inset-0 w-full h-full transition duration-300 ease-in-out transform scale-105 bg-yellow-700 opacity-0 group-hover:opacity-30 blur-md rounded-full"></span>
                   <span className="relative z-10 flex items-center gap-2 text-sm sm:text-md tracking-wide">
