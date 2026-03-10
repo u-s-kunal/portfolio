@@ -15,7 +15,7 @@ const projects = [
   },
   {
     title: "Kartenity E-commerce",
-    category: "Current",
+    category: "Websites",
     description:
       " E-commerce app developed in MERN, which im currently working on",
     image:
