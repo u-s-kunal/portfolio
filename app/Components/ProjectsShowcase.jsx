@@ -151,13 +151,14 @@ const ProjectsShowcase = () => {
     <div id="projects" className="text-white text-center p-6">
       <h2 className="text-6xl m-6 tilt-neon">My Projects</h2>
 
-      <div className="text-center bg-red-700 mt-8 w-full rounded-2xl p-2">
-        <h2 className="text-2xl mx-4">My Ongoing Work</h2>
-      </div>
       <div className="gap-1 m-auto flex flex-wrap justify-center items-stretch">
         {projects.map(
           (project, index) =>
             project.category === "Current" && (
+              
+      <div className="text-center bg-red-700 mt-8 w-full rounded-2xl p-2">
+        <h2 className="text-2xl mx-4">My Ongoing Work</h2>
+      </div>
               <ProjectCard
                 key={project.title}
                 link={project.link}
