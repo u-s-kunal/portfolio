@@ -52,6 +52,15 @@ const skills = [
     image: "https://cdn-icons-png.flaticon.com/512/5968/5968672.png",
     description: "Popular CSS framework for responsive design.",
   },
+    {
+    title: "Node.js",
+    image: "https://cdn.worldvectorlogo.com/logos/nodejs-1.svg",
+    description: "Popular JS framework for Back-end development.",
+  },   {
+    title: "TypeScript",
+    image: "https://cdn.worldvectorlogo.com/logos/typescript.svg",
+    description: "Popular JS Extention for Type based and secure development.",
+  },
 ];
 
 export default function CurrentSkills() {
