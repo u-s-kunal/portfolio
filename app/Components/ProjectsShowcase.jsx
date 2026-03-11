@@ -15,11 +15,10 @@ const projects = [
   },
   {
     title: "Kartenity E-commerce",
-    category: "Websites",
+    category: "Current",
     description:
-      " E-commerce app developed in MERN, which im currently working on",
-    image:
-      "/E-Commerce.jpeg",
+      "E-commerce app developed in MERN which I am currently working on.",
+    image: "/E-Commerce.jpeg",
     link: "https://kartenity.vercel.app",
   },
   {
@@ -67,7 +66,7 @@ const projects = [
     title: "Food Delivery",
     category: "Websites",
     description:
-      "This is a front-end demo for a food app I built while learning HTML, CSS, and JS. It’s not fully functional, but shows my early UI design efforts.",
+      "Front-end demo for a food delivery UI created while learning HTML, CSS, and JavaScript.",
     image:
       "https://cdn.pixabay.com/photo/2022/06/14/18/58/beef-burger-7262651_960_720.jpg",
     link: "https://u-s-kunal.github.io/food_delivery/",
@@ -76,7 +75,7 @@ const projects = [
     title: "Wild Life",
     category: "Websites",
     description:
-      "A front-end wildlife-themed site built while learning HTML and CSS. It showcases UI design from my initial practice.",
+      "Wildlife-themed front-end site built while learning HTML and CSS.",
     image:
       "https://cdn.pixabay.com/photo/2024/02/02/00/57/ai-generated-8547056_960_720.jpg",
     link: "https://u-s-kunal.github.io/wildlife/",
@@ -85,7 +84,7 @@ const projects = [
     title: "Law",
     category: "Websites",
     description:
-      "A basic front-end site related to law, made during my HTML and CSS learning phase. Focuses on layout and UI design.",
+      "Basic front-end site related to law created during HTML and CSS practice.",
     image:
       "https://cdn.pixabay.com/photo/2025/03/05/15/04/verdict-9448861_960_720.jpg",
     link: "https://u-s-kunal.github.io/law/",
@@ -94,7 +93,7 @@ const projects = [
     title: "Library App",
     category: "Applications",
     description:
-      "A simple app to store records of books using localStorage. Created while learning data persistence in JavaScript.",
+      "App to store book records using localStorage while learning JavaScript.",
     image:
       "https://cdn.pixabay.com/photo/2022/12/27/00/46/girl-7680032_960_720.png",
     link: "https://u-s-kunal.github.io/LibraryApp/",
@@ -103,7 +102,7 @@ const projects = [
     title: "Snake Game",
     category: "Games",
     description:
-      "Created while learning JS. Uses switch cases, window object, and Math.random() for gameplay logic.",
+      "JavaScript snake game using switch statements and Math.random().",
     image:
       "https://cdn.pixabay.com/photo/2024/08/31/07/01/snake-9010653_960_720.jpg",
     link: "https://u-s-kunal.github.io/snakegame/",
@@ -112,7 +111,7 @@ const projects = [
     title: "Mini Mario",
     category: "Games",
     description:
-      "Built using JS. Inspired by Chrome’s Dinosaur Game, but themed like Mario.",
+      "Small platform game inspired by Chrome's dinosaur game.",
     image:
       "https://cdn.pixabay.com/photo/2020/05/26/03/17/super-mario-5221243_960_720.jpg",
     link: "https://u-s-kunal.github.io/mario/",
@@ -121,7 +120,7 @@ const projects = [
     title: "Coffee Shop",
     category: "Websites",
     description:
-      "Created while learning CSS. Includes animations and transformations to showcase UI design.",
+      "CSS practice project demonstrating animations and UI layout.",
     image:
       "https://cdn.pixabay.com/photo/2018/01/25/20/14/coffee-3106958_960_720.png",
     link: "https://u-s-kunal.github.io/Coffeeshop/",
@@ -130,7 +129,7 @@ const projects = [
     title: "Interior",
     category: "Websites",
     description:
-      "Interior design-themed demo built with CSS Flexbox and Google Fonts to present layout ideas.",
+      "Interior design themed layout using Flexbox and Google Fonts.",
     image:
       "https://cdn.pixabay.com/photo/2025/03/04/08/44/ai-generated-9445743_960_720.jpg",
     link: "https://u-s-kunal.github.io/interior/",
@@ -139,7 +138,7 @@ const projects = [
     title: "Expenses Calculator",
     category: "Applications",
     description:
-      "React JS application created while learning React. Uses useState hook and localStorage.",
+      "React app using useState and localStorage to track expenses.",
     image:
       "https://cdn.pixabay.com/photo/2019/10/18/19/51/financial-4560047_960_720.jpg",
     link: "https://u-s-kunal.github.io/expensesCal/",
@@ -147,18 +146,22 @@ const projects = [
 ];
 
 const ProjectsShowcase = () => {
+  const currentProjects = projects.filter(
+    (project) => project.category === "Current"
+  );
+
   return (
     <div id="projects" className="text-white text-center p-6">
       <h2 className="text-6xl m-6 tilt-neon">My Projects</h2>
 
-      <div className="gap-1 m-auto flex flex-wrap justify-center items-stretch">
-        {projects.map(
-          (project, index) =>
-            project.category === "Current" && (
-              
-      <div className="text-center bg-red-700 mt-8 w-full rounded-2xl p-2">
-        <h2 className="text-2xl mx-4">My Ongoing Work</h2>
-      </div>
+      {currentProjects.length > 0 && (
+        <>
+          <div className="text-center bg-red-700 mt-8 w-full rounded-2xl p-2">
+            <h2 className="text-2xl mx-4">My Ongoing Work</h2>
+          </div>
+
+          <div className="gap-1 m-auto flex flex-wrap justify-center items-stretch">
+            {currentProjects.map((project) => (
               <ProjectCard
                 key={project.title}
                 link={project.link}
@@ -166,62 +169,63 @@ const ProjectsShowcase = () => {
                 title={project.title}
                 description={project.description}
               />
-            )
-        )}
-      </div>
+            ))}
+          </div>
+        </>
+      )}
 
       <div className="text-center bg-amber-700 mt-8 w-full rounded-2xl p-2">
         <h2 className="text-2xl mx-4">Web Applications</h2>
       </div>
+
       <div className="gap-1 m-auto flex flex-wrap justify-center items-stretch">
-        {projects.map(
-          (project, index) =>
-            project.category === "Applications" && (
-              <ProjectCard
-                key={project.title}
-                link={project.link}
-                image={project.image}
-                title={project.title}
-                description={project.description}
-              />
-            )
-        )}
+        {projects
+          .filter((project) => project.category === "Applications")
+          .map((project) => (
+            <ProjectCard
+              key={project.title}
+              link={project.link}
+              image={project.image}
+              title={project.title}
+              description={project.description}
+            />
+          ))}
       </div>
 
       <div className="text-center bg-gray-700 w-full mt-8 rounded-2xl p-2">
         <h2 className="text-2xl mx-4">Games</h2>
       </div>
+
       <div className="gap-1 m-auto flex flex-wrap justify-center items-stretch">
-        {projects.map(
-          (project, index) =>
-            project.category === "Games" && (
-              <ProjectCard
-                key={index}
-                link={project.link}
-                image={project.image}
-                title={project.title}
-                description={project.description}
-              />
-            )
-        )}
+        {projects
+          .filter((project) => project.category === "Games")
+          .map((project) => (
+            <ProjectCard
+              key={project.title}
+              link={project.link}
+              image={project.image}
+              title={project.title}
+              description={project.description}
+            />
+          ))}
       </div>
 
       <div className="text-center bg-green-700 w-full mt-8 rounded-2xl p-2">
         <h2 className="text-2xl mx-4">Web Designs</h2>
       </div>
+
       <div className="gap-1 m-auto flex flex-wrap justify-center items-stretch">
-        {projects.map(
-          (project, index) =>
-            project.category === "Websites" && (
-              <ProjectCard
-                key={index}
-                link={project.link}
-                image={project.image}
-                title={project.title}
-                description={project.description}
-              />
-            )
-        )}
+        {projects
+          .filter((project) => project.category === "Websites")
+          .map((project) => (
+            <ProjectCard
+              key={project.title}
+              link={project.link}
+              image={project.image}
+              title={project.title}
+              description={project.description}
+            />
+          ))}
       </div>
     </div>
   );
