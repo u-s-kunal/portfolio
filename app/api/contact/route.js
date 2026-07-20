@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 import nodemailer from "nodemailer";
-import twilio from "twilio";
-import connectDB from "../../../lib/mongoose"; // ⚠️ verify this file actually exists at this path/name
+import connectDB from "/lib/mongoose";
 
 // Mongoose Contact model
 const ContactSchema = new mongoose.Schema(
