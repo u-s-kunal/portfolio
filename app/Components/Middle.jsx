@@ -137,7 +137,7 @@ function Middle() {
         </div>
 
         {/* Bottom Stats */}
-        <div className="mt-18 grid grid-cols-3 overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md">
+        <div className="mt-18 grid grid-cols-3 mb-6 overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md">
           <div className="py-8 text-center">
             <h3 className="text-4xl font-bold text-green-400">40+</h3>
             <p className="mt-2 text-gray-400">Projects</p>
