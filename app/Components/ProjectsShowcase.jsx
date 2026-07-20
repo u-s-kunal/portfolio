@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 import ProjectCard from "./ProjectCard";
 
 const projects = [
@@ -15,7 +16,7 @@ const projects = [
   },
   {
     title: "Kartenity E-commerce",
-    category: "Current",
+    category: "Applications",
     description:
       "E-commerce app developed in MERN which I am currently working on.",
     image: "/E-Commerce.jpeg",
@@ -110,8 +111,7 @@ const projects = [
   {
     title: "Mini Mario",
     category: "Games",
-    description:
-      "Small platform game inspired by Chrome's dinosaur game.",
+    description: "Small platform game inspired by Chrome's dinosaur game.",
     image:
       "https://cdn.pixabay.com/photo/2020/05/26/03/17/super-mario-5221243_960_720.jpg",
     link: "https://u-s-kunal.github.io/mario/",
@@ -119,8 +119,7 @@ const projects = [
   {
     title: "Coffee Shop",
     category: "Websites",
-    description:
-      "CSS practice project demonstrating animations and UI layout.",
+    description: "CSS practice project demonstrating animations and UI layout.",
     image:
       "https://cdn.pixabay.com/photo/2018/01/25/20/14/coffee-3106958_960_720.png",
     link: "https://u-s-kunal.github.io/Coffeeshop/",
@@ -145,89 +144,120 @@ const projects = [
   },
 ];
 
-const ProjectsShowcase = () => {
-  const currentProjects = projects.filter(
-    (project) => project.category === "Current"
-  );
+const sectionOrder = [
+  { title: "Web Applications", key: "Applications", accent: "cyan" },
+  { title: "Games", key: "Games", accent: "orange" },
+  { title: "Web Designs", key: "Websites", accent: "emerald" },
+];
+
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 35 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.55,
+      ease: "easeOut",
+    },
+  },
+};
+
+function SectionTitle({ title, accent = "cyan" }) {
+  const accentClasses =
+    accent === "orange"
+      ? "from-orange-400/60 to-transparent"
+      : accent === "emerald"
+        ? "from-emerald-400/60 to-transparent"
+        : "from-cyan-400/60 to-transparent";
 
   return (
-    <div id="projects" className="text-white text-center p-6">
-      <h2 className="text-6xl m-6 tilt-neon">My Projects</h2>
-
-      {currentProjects.length > 0 && (
-        <>
-          <div className="text-center bg-red-700 mt-8 w-full rounded-2xl p-2">
-            <h2 className="text-2xl mx-4">My Ongoing Work</h2>
-          </div>
-
-          <div className="gap-1 m-auto flex flex-wrap justify-center items-stretch">
-            {currentProjects.map((project) => (
-              <ProjectCard
-                key={project.title}
-                link={project.link}
-                image={project.image}
-                title={project.title}
-                description={project.description}
-              />
-            ))}
-          </div>
-        </>
-      )}
-
-      <div className="text-center bg-amber-700 mt-8 w-full rounded-2xl p-2">
-        <h2 className="text-2xl mx-4">Web Applications</h2>
-      </div>
-
-      <div className="gap-1 m-auto flex flex-wrap justify-center items-stretch">
-        {projects
-          .filter((project) => project.category === "Applications")
-          .map((project) => (
-            <ProjectCard
-              key={project.title}
-              link={project.link}
-              image={project.image}
-              title={project.title}
-              description={project.description}
-            />
-          ))}
-      </div>
-
-      <div className="text-center bg-gray-700 w-full mt-8 rounded-2xl p-2">
-        <h2 className="text-2xl mx-4">Games</h2>
-      </div>
-
-      <div className="gap-1 m-auto flex flex-wrap justify-center items-stretch">
-        {projects
-          .filter((project) => project.category === "Games")
-          .map((project) => (
-            <ProjectCard
-              key={project.title}
-              link={project.link}
-              image={project.image}
-              title={project.title}
-              description={project.description}
-            />
-          ))}
-      </div>
-
-      <div className="text-center bg-green-700 w-full mt-8 rounded-2xl p-2">
-        <h2 className="text-2xl mx-4">Web Designs</h2>
-      </div>
-
-      <div className="gap-1 m-auto flex flex-wrap justify-center items-stretch">
-        {projects
-          .filter((project) => project.category === "Websites")
-          .map((project) => (
-            <ProjectCard
-              key={project.title}
-              link={project.link}
-              image={project.image}
-              title={project.title}
-              description={project.description}
-            />
-          ))}
+    <div className="mb-8">
+      <div className="flex items-center gap-4">
+        <div className={`h-px flex-1 bg-gradient-to-r ${accentClasses}`} />
+        <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
+          {title}
+        </h2>
+        <div className={`h-px flex-1 bg-gradient-to-l ${accentClasses}`} />
       </div>
     </div>
+  );
+}
+
+function ProjectGrid({ items }) {
+  return (
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.15 }}
+      className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-7"
+    >
+      {items.map((project) => (
+        <motion.div key={project.title} variants={itemVariants}>
+          <ProjectCard
+            link={project.link}
+            image={project.image}
+            title={project.title}
+            description={project.description}
+          />
+        </motion.div>
+      ))}
+    </motion.div>
+  );
+}
+
+const ProjectsShowcase = () => {
+  
+
+  return (
+    <section
+      id="projects"
+      className="relative overflow-hidden py-24 px-4 md:px-8 text-white"
+    >
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.12),_transparent_30%),radial-gradient(circle_at_bottom_right,_rgba(249,115,22,0.10),_transparent_28%),linear-gradient(to_bottom,_rgba(2,6,23,0.9),_rgba(2,6,23,0.98))]" />
+      <div className="absolute left-0 top-0 -z-10 h-96 w-96 rounded-full bg-cyan-500/10 blur-[120px]" />
+      <div className="absolute bottom-0 right-0 -z-10 h-96 w-96 rounded-full bg-orange-500/10 blur-[120px]" />
+
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-20">
+          <p className="uppercase tracking-[6px] text-cyan-400 text-sm font-semibold">
+            Portfolio
+          </p>
+          <h1 className="mt-4 text-5xl md:text-7xl font-black text-white leading-none">
+            My Projects
+          </h1>
+          <p className="mt-8 max-w-3xl text-lg leading-8 text-gray-400">
+            A curated collection of web applications, games, and static web
+            designs built while learning, experimenting, and shipping real work.
+          </p>
+          <div className="mt-8 h-1 w-32 rounded-full bg-gradient-to-r from-cyan-400 to-orange-400" />
+        </div>
+
+
+        {sectionOrder.map((section) => {
+          const items = projects.filter(
+            (project) => project.category === section.key
+          );
+
+          return (
+            <section key={section.key} className="mb-24">
+              <SectionTitle title={section.title} accent={section.accent} />
+              <ProjectGrid items={items} />
+            </section>
+          );
+        })}
+      </div>
+    </section>
   );
 };
 

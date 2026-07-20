@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className="relative  scroll-smooth bg-transparent overflow-x-hidden">
       <SessionProvider>
-        <div className="relative z-10">
+        <div className="relative z-10 ">
           <Middle />
         </div>
       </SessionProvider>

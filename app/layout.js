@@ -2,8 +2,6 @@ import "./globle.css";
 import ClientLayout from "./ClientLayout";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Navbar from "./Components/Navbar.jsx";
-import StarField from "./Components/StarField";
-import NebulaBackground from "./Components/NebulaBackground";
 import Footer from "./Components/Footer";
 
 import { Tilt_Neon } from "next/font/google";
@@ -25,10 +23,7 @@ export default function Layout({ children }) {
       <body className="relative min-h-screen bg-black overflow-x-hidden">
         {/* Background stars */}
 
-        <div className="fixed inset-0 -z-10 ">
-          <NebulaBackground />
-          <StarField />
-        </div>
+        <div className="fixed inset-0 -z-10 "></div>
         {/* Foreground content */}
         <div className="relative z-10">
           <ClientLayout>
