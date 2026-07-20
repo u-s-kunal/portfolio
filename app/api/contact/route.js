@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import nodemailer from "nodemailer";
 import twilio from "twilio";
-import connectDB from "../../../lib/mongoose";
+import connectDB from "../../../lib/mongoose"; // ⚠️ verify this file actually exists at this path/name
 
 // Mongoose Contact model
 const ContactSchema = new mongoose.Schema(
@@ -11,21 +11,15 @@ const ContactSchema = new mongoose.Schema(
     subject: String,
     message: String,
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 const Contact =
   mongoose.models.Contact || mongoose.model("Contact", ContactSchema);
 
-// Twilio client setup
-const twilioClient = twilio(
-  process.env.TWILIO_ACCOUNT_SID,
-  process.env.TWILIO_AUTH_TOKEN
-);
-
 export async function POST(req) {
-  await connectDB();
-
   try {
+    await connectDB();
+
     const data = await req.json();
     console.log("✅ Received contact data:", data);
 
@@ -65,32 +59,44 @@ export async function POST(req) {
       📝 Subject: ${data.subject}
 
       💬 Message:
-      ${data.message}
+${data.message}
 `,
     };
 
     await transporter.sendMail(mailOptions);
     console.log("✅ Email sent");
 
-    // Send SMS via Twilio
+    // Send SMS via Twilio (client created here, not at module load,
+    // so missing/invalid env vars don't crash the whole route file)
     if (
       process.env.TWILIO_PHONE_NUMBER &&
       process.env.ADMIN_PHONE_NUMBER &&
       process.env.TWILIO_ACCOUNT_SID &&
       process.env.TWILIO_AUTH_TOKEN
     ) {
-      await twilioClient.messages.create({
-        body: `📬 New contact from 
-        👤 Name: ${data.name}
-        📧 Email: ${data.email}
-        📝 Subject: ${data.subject}
+      try {
+        const twilioClient = twilio(
+          process.env.TWILIO_ACCOUNT_SID,
+          process.env.TWILIO_AUTH_TOKEN,
+        );
 
-        💬 Message:
-        ${data.message}`,
-        from: process.env.TWILIO_PHONE_NUMBER,
-        to: process.env.ADMIN_PHONE_NUMBER,
-      });
-      console.log("✅ SMS sent");
+        await twilioClient.messages.create({
+          body: `📬 New contact from
+          👤 Name: ${data.name}
+          📧 Email: ${data.email}
+          📝 Subject: ${data.subject}
+
+          💬 Message:
+${data.message}`,
+          from: process.env.TWILIO_PHONE_NUMBER,
+          to: process.env.ADMIN_PHONE_NUMBER,
+        });
+        console.log("✅ SMS sent");
+      } catch (smsError) {
+        // Don't let SMS failure fail the whole request —
+        // the form submission and email already succeeded.
+        console.error("⚠️ SMS failed, continuing anyway:", smsError);
+      }
     } else {
       console.warn("⚠️ Skipped SMS: Twilio env vars not fully set.");
     }
@@ -100,7 +106,7 @@ export async function POST(req) {
     console.error("❌ Error saving contact or sending notifications:", error);
     return new Response(
       JSON.stringify({ error: "Failed to process contact form" }),
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
