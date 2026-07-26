@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import nodemailer from "nodemailer";
 import connectDB from "../../../lib/mongoose";
+import twilio from "twilio";
 
 // Mongoose Contact model
 const ContactSchema = new mongoose.Schema(

@@ -92,11 +92,11 @@ function Middle() {
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.18),transparent_55%)]" />
 
                 <div className="relative text-center">
-                  <div className="text-7xl font-black tracking-[0.2em] text-white">
-                    STACK
+                  <div className="text-5xl font-black tracking-[0.2em] text-white">
+                      MY SKILLS
                   </div>
                   <p className="mt-3 text-xs uppercase tracking-[6px] text-cyan-400/80">
-                    Tech Orbit
+                    CURRENT
                   </p>
                 </div>
               </div>
