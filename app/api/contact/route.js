@@ -3,8 +3,6 @@ import { Resend } from "resend";
 import connectDB from "../../../lib/mongoose";
 import twilio from "twilio";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 // Contact Schema
 const ContactSchema = new mongoose.Schema(
   {
@@ -43,6 +41,8 @@ export async function POST(req) {
         "Missing RESEND_API_KEY or TO_EMAIL environment variables.",
       );
     }
+
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     console.log("📧 Sending email with Resend...");
 
