@@ -49,16 +49,17 @@ export async function POST(req) {
     console.log("📧 Creating email transporter...");
 
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
+      connectionTimeout: 10000,
+      greetingTimeout: 10000,
+      socketTimeout: 10000,
     });
-
-    console.log("🔍 Verifying transporter...");
-    await transporter.verify();
-    console.log("✅ Gmail transporter verified");
 
     // Send Email
     const mailOptions = {
@@ -140,7 +141,7 @@ ${data.message}`,
     return new Response(
       JSON.stringify({
         success: false,
-        error: error.message, // Keep this for debugging. Replace with a generic message in production if preferred.
+        error: error.message,
       }),
       {
         status: 500,
