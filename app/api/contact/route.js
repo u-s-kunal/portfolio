@@ -1,7 +1,9 @@
 import mongoose from "mongoose";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import connectDB from "../../../lib/mongoose";
 import twilio from "twilio";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Contact Schema
 const ContactSchema = new mongoose.Schema(
@@ -35,36 +37,24 @@ export async function POST(req) {
     const saved = await Contact.create(data);
     console.log("✅ Contact Saved:", saved._id);
 
-    // Check Email Environment Variables
-    if (
-      !process.env.EMAIL_USER ||
-      !process.env.EMAIL_PASS ||
-      !process.env.TO_EMAIL
-    ) {
+    // Check Environment Variables
+    if (!process.env.RESEND_API_KEY || !process.env.TO_EMAIL) {
       throw new Error(
-        "Missing EMAIL_USER, EMAIL_PASS or TO_EMAIL environment variables.",
+        "Missing RESEND_API_KEY or TO_EMAIL environment variables.",
       );
     }
 
-    console.log("📧 Creating email transporter...");
+    console.log("📧 Sending email with Resend...");
 
-    const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 465,
-      secure: true,
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-      connectionTimeout: 10000,
-      greetingTimeout: 10000,
-      socketTimeout: 10000,
-    });
+    const { data: emailResult, error: emailError } = await resend.emails.send({
+      // Change this after verifying your domain
+      from: "Portfolio <onboarding@resend.dev>",
 
-    // Send Email
-    const mailOptions = {
-      from: `"Portfolio Bot 👨‍💻" <${process.env.EMAIL_USER}>`,
+      // After domain verification use:
+      // from: "Portfolio <noreply@developerkunal.com>",
+
       to: process.env.TO_EMAIL,
+      replyTo: data.email,
       subject: `📬 New Contact Message: ${data.subject}`,
       text: `You received a new contact message
 
@@ -75,11 +65,15 @@ export async function POST(req) {
 💬 Message:
 ${data.message}
 `,
-    };
+    });
 
-    console.log("📤 Sending email...");
-    await transporter.sendMail(mailOptions);
+    if (emailError) {
+      console.error("❌ Resend Error:", emailError);
+      throw new Error(emailError.message);
+    }
+
     console.log("✅ Email Sent Successfully");
+    console.log("Email ID:", emailResult?.id);
 
     // Send SMS
     if (
