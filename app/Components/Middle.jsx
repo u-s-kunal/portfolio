@@ -26,7 +26,7 @@ function Middle() {
   const startAngle = -90;
 
   return (
-    <section className="relative z-10  flex min-h-screen items-center mt-6">
+    <section className="relative z-10  flex min-h-screen items-center mt-4">
       <div className="mx-auto w-full max-w-7xl px-6 lg:px-10">
         <div className="grid items-center gap-16 lg:grid-cols-2">
           {/* LEFT SIDE */}
