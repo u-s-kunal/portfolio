@@ -49,8 +49,21 @@ const sections = [
         year: "2024",
         image: "/IBM CERTIFICATE.png",
       },
+      {
+      title: "React – The Complete Guide (incl. Next.js, Redux)",
+      provider: "Udemy",
+      year: "Apr 2026",
+      image: "/React - The Complete Guide(incl. Next.js, Redux.png",
+    },
+    {
+      title: "Node.js, Express, MongoDB & More: The Complete Bootcamp",
+      provider: "Udemy",
+      year: "Aug 2026",
+      image: "/Node.js, Express, MongoDB & More: The Complete Bootcamp.png",
+    },
     ],
   },
+  
   {
     title: "Education",
     emoji: "🎓",
