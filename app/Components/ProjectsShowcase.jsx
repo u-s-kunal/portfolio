@@ -14,14 +14,7 @@ const projects = [
       "https://cdn.pixabay.com/photo/2014/05/21/15/18/musician-349790_960_720.jpg",
     link: "https://u-s-kunal.github.io/music/",
   },
-  {
-    title: "Kartenity E-commerce",
-    category: "New Projects",
-    description:
-      "E-commerce app developed in MERN which I am currently working on.",
-    image: "/E-Commerce.jpeg",
-    link: "https://kartenity.vercel.app",
-  },
+ 
   {
     title: "Password Manager",
     category: "Applications",
@@ -63,6 +56,14 @@ const projects = [
     image:
       "https://cdn.pixabay.com/animation/2026/07/05/23/59/23-59-25-203_256.gif",
     link: "https://skytube-self.vercel.app/",
+  },
+  {
+    title: "Kartenity E-commerce",
+    category: "New Projects",
+    description:
+      "E-commerce app developed in MERN which I am currently working on.",
+    image: "/E-Commerce.jpeg",
+    link: "https://kartenity.vercel.app",
   },
   {
     title: "Weather App",
