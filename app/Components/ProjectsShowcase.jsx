@@ -16,7 +16,7 @@ const projects = [
   },
   {
     title: "Kartenity E-commerce",
-    category: "Applications",
+    category: "New Projects",
     description:
       "E-commerce app developed in MERN which I am currently working on.",
     image: "/E-Commerce.jpeg",
@@ -54,6 +54,15 @@ const projects = [
     image:
       "https://cdn.pixabay.com/photo/2019/10/07/12/08/online-shopping-4532460_960_720.jpg",
     link: "https://u-s-kunal.github.io/e-commerce/",
+  },
+  {
+    title: "SkyTube",
+    category: "New Projects",
+    description:
+      "Full-featured video Streaming Application built with MERN stack.",
+    image:
+      "https://cdn.pixabay.com/animation/2026/07/05/23/59/23-59-25-203_256.gif",
+    link: "https://skytube-self.vercel.app/",
   },
   {
     title: "Weather App",
@@ -145,6 +154,7 @@ const projects = [
 ];
 
 const sectionOrder = [
+  { title: "New Projects", key: "New Projects", accent: "red" },
   { title: "Web Applications", key: "Applications", accent: "cyan" },
   { title: "Games", key: "Games", accent: "orange" },
   { title: "Web Designs", key: "Websites", accent: "emerald" },
