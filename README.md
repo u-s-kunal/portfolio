@@ -107,3 +107,41 @@ portfolio/
 ├── tailwind.config.js
 ├── tsconfig.json
 └── README.md
+
+
+
+## Application Architecture
+
+The portfolio is built as a full-stack Next.js application. The Next.js application handles the user interface, server-side functionality, authentication, database communication, and integrations with external services.
+
+```text
+                         ┌──────────────────────┐
+                         │        Visitor       │
+                         └──────────┬───────────┘
+                                    │
+                                    ▼
+                         ┌──────────────────────┐
+                         │     Next.js / React  │
+                         │    Portfolio UI      │
+                         └──────────┬───────────┘
+                                    │
+                         ┌──────────┼──────────┐
+                         │          │          │
+                         ▼          ▼          ▼
+                  ┌───────────┐ ┌─────────┐ ┌───────────┐
+                  │ NextAuth  │ │ MongoDB │ │   Email   │
+                  │           │ │Mongoose │ │  Services │
+                  └───────────┘ └─────────┘ └─────┬─────┘
+                                                  │
+                                            ┌─────┴─────┐
+                                            │  Resend / │
+                                            │ Nodemailer│
+                                            └───────────┘
+
+                         External Integrations
+                                  │
+                                  ▼
+                         ┌─────────────────┐
+                         │ Twilio / Other  │
+                         │    Services     │
+                         └─────────────────┘
