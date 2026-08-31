@@ -1,36 +1,158 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Kunal Ughade — Developer Portfolio
 
-## Getting Started
+Personal developer portfolio built with Next.js and React to showcase my software development projects, technical skills, experience, and professional background.
 
-First, run the development server:
+## Live Website
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+https://developerkunal.com
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Overview
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This is my personal developer portfolio, designed and developed to present my work as a Junior MERN Stack / Full-Stack Developer.
 
-## Learn More
+The application uses Next.js and React for the frontend and includes a MongoDB-backed data layer, authentication, email services, interactive UI components, animations, and production deployment.
 
-To learn more about Next.js, take a look at the following resources:
+The portfolio also showcases projects spanning MERN Stack development, React.js, Next.js, JavaScript applications, web design, and other development work.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Features
 
-## Deploy on Vercel
+### Portfolio
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Professional developer profile
+- About section
+- Technical skills
+- Work experience
+- Education
+- Certifications
+- Featured projects
+- Project details and live demos
+- Responsive design
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Contact
+
+- Contact form
+- Email delivery using Resend
+- Nodemailer integration
+- Server-side form handling
+- Form validation and error handling
+
+### Authentication
+
+- Authentication using NextAuth
+- Session management
+- Protected functionality where required
+
+### Database
+
+- MongoDB integration
+- Mongoose for database modeling and interaction
+- Persistent application data
+
+### User Interface
+
+- Responsive design
+- Tailwind CSS
+- Framer Motion animations
+- Headless UI components
+- Lucide React icons
+- Heroicons
+- Font Awesome
+
+### Additional Integrations
+
+- Twilio integration
+- WebSocket support
+- Server-side functionality
+- Environment-based configuration
+
+---
+
+## Tech Stack
+
+### Frontend
+
+- Next.js 15
+- React 19
+- Tailwind CSS
+- JavaScript
+- Framer Motion
+- Headless UI
+- Lucide React
+- Heroicons
+- Font Awesome
+
+### Backend & Database
+
+- Next.js server-side functionality
+- Node.js
+- MongoDB
+- Mongoose
+- NextAuth
+- WebSockets
+
+### Communication & Services
+
+- Resend
+- Nodemailer
+- Twilio
+
+### Deployment
+
+- Next.js
+- Node.js 20
+- Production deployment with custom domain
+
+---
+
+## Application Architecture
+
+```text
+                    ┌─────────────────────┐
+                    │       Visitor      │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │    Next.js / React  │
+                    │     Portfolio UI    │
+                    └──────────┬──────────┘
+                               │
+                    ┌──────────┼──────────┐
+                    │          │          │
+                    ▼          ▼          ▼
+              ┌─────────┐ ┌─────────┐ ┌─────────┐
+              │ MongoDB │ │ Resend  │ │ Twilio  │
+              │         │ │ Email   │ │ Services│
+              └─────────┘ └─────────┘ └─────────┘
+                    │
+                    ▼
+              ┌───────────┐
+              │ Mongoose  │
+              │   Data    │
+              └───────────┘
+
+
+
+
+### Docker architecture
+
+Your Dockerfile uses three stages:
+
+```text
+Dependencies
+     ↓
+node:20-alpine
+     ↓
+npm install
+     ↓
+Builder
+     ↓
+npm run build
+     ↓
+Runner
+     ↓
+Production Next.js application
