@@ -1,6 +1,6 @@
 # Kunal Ughade — Developer Portfolio
 
-Personal developer portfolio built with Next.js and React to showcase my software development projects, technical skills, experience, and professional background.
+Personal developer portfolio built with Next.js and React to showcase my projects, technical skills, experience, education, certifications, and professional background.
 
 ## Live Website
 
@@ -8,66 +8,31 @@ https://developerkunal.com
 
 ---
 
-## Overview
+## About
 
-This is my personal developer portfolio, designed and developed to present my work as a Junior MERN Stack / Full-Stack Developer.
+This portfolio was designed and developed as a full-stack Next.js application to provide an interactive and responsive way to present my work as a Junior MERN Stack / Full-Stack Developer.
 
-The application uses Next.js and React for the frontend and includes a MongoDB-backed data layer, authentication, email services, interactive UI components, animations, and production deployment.
-
-The portfolio also showcases projects spanning MERN Stack development, React.js, Next.js, JavaScript applications, web design, and other development work.
+The application includes a MongoDB-backed data layer, authentication, email services, interactive UI components, animations, and production-ready Docker configuration.
 
 ---
 
 ## Features
 
-### Portfolio
-
-- Professional developer profile
-- About section
-- Technical skills
-- Work experience
-- Education
-- Certifications
-- Featured projects
-- Project details and live demos
-- Responsive design
-
-### Contact
-
+- Responsive developer portfolio
+- Interactive project showcase
+- Professional profile and experience
+- Education and certifications
+- Technical skills section
 - Contact form
 - Email delivery using Resend
-- Nodemailer integration
-- Server-side form handling
-- Form validation and error handling
-
-### Authentication
-
-- Authentication using NextAuth
-- Session management
-- Protected functionality where required
-
-### Database
-
-- MongoDB integration
-- Mongoose for database modeling and interaction
-- Persistent application data
-
-### User Interface
-
-- Responsive design
-- Tailwind CSS
-- Framer Motion animations
-- Headless UI components
-- Lucide React icons
-- Heroicons
-- Font Awesome
-
-### Additional Integrations
-
-- Twilio integration
-- WebSocket support
-- Server-side functionality
-- Environment-based configuration
+- MongoDB database integration
+- Mongoose data modeling
+- Authentication with NextAuth
+- Interactive UI animations
+- Responsive Tailwind CSS design
+- Production Docker configuration
+- GitHub Actions workflow
+- Custom domain deployment
 
 ---
 
@@ -77,82 +42,68 @@ The portfolio also showcases projects spanning MERN Stack development, React.js,
 
 - Next.js 15
 - React 19
-- Tailwind CSS
 - JavaScript
+- Tailwind CSS
 - Framer Motion
 - Headless UI
 - Lucide React
 - Heroicons
 - Font Awesome
 
-### Backend & Database
+### Backend & Data
 
 - Next.js server-side functionality
 - Node.js
 - MongoDB
 - Mongoose
 - NextAuth
-- WebSockets
 
-### Communication & Services
+### Services
 
 - Resend
 - Nodemailer
 - Twilio
+- WebSocket
 
-### Deployment
+### Development & Deployment
 
-- Next.js
+- Git
+- GitHub
+- GitHub Actions
+- Docker
 - Node.js 20
-- Production deployment with custom domain
+- ESLint
 
 ---
 
-## Application Architecture
+## Project Structure
 
 ```text
-                    ┌─────────────────────┐
-                    │       Visitor      │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │    Next.js / React  │
-                    │     Portfolio UI    │
-                    └──────────┬──────────┘
-                               │
-                    ┌──────────┼──────────┐
-                    │          │          │
-                    ▼          ▼          ▼
-              ┌─────────┐ ┌─────────┐ ┌─────────┐
-              │ MongoDB │ │ Resend  │ │ Twilio  │
-              │         │ │ Email   │ │ Services│
-              └─────────┘ └─────────┘ └─────────┘
-                    │
-                    ▼
-              ┌───────────┐
-              │ Mongoose  │
-              │   Data    │
-              └───────────┘
-
-
-
-
-### Docker architecture
-
-Your Dockerfile uses three stages:
-
-```text
-Dependencies
-     ↓
-node:20-alpine
-     ↓
-npm install
-     ↓
-Builder
-     ↓
-npm run build
-     ↓
-Runner
-     ↓
-Production Next.js application
+portfolio/
+│
+├── .github/
+│   └── workflows/
+│
+├── .vscode/
+│
+├── app/
+│   └── Next.js application
+│
+├── lib/
+│   └── Application utilities and services
+│
+├── public/
+│   └── Static assets
+│
+├── .dockerignore
+├── .gitignore
+├── Dockerfile
+├── eslint.config.mjs
+├── jsconfig.json
+├── next.config.mjs
+├── package.json
+├── package-lock.json
+├── postcss.config.mjs
+├── tailwind.config.js
+├── tsconfig.json
+└── README.md
