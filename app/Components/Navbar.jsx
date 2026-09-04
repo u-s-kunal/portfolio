@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
 import { Menu, X, Coffee } from "lucide-react";
-import "../globle.css";
+import "../global.css";
 import Loader from "./Loader";
 
 const navigation = [

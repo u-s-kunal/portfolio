@@ -1,4 +1,4 @@
-import "./globle.css";
+import "./global.css";
 import ClientLayout from "./ClientLayout";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Navbar from "./Components/Navbar.jsx";
