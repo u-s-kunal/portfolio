@@ -2,8 +2,7 @@ import mongoose from "mongoose";
 import connectDB from "../lib/mongoose.js";
 import { generateEmbedding } from "../lib/rag/embeddings.js";
 
-const question = "What technologies does Kunal use?";
-
+const question = "Tell me about Kunal's projects.";
 async function testVectorSearch() {
   try {
     console.log("Connecting to MongoDB...");
