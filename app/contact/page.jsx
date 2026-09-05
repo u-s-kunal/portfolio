@@ -1,6 +1,6 @@
 "use client";
 
-import "../globle.css";
+import "../global.css";
 import React, { useState } from "react";
 
 const ContactMePage = () => {

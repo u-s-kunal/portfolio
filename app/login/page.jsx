@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import "../globle.css";
+import "../global.css";
 import Social from "../Components/Social";
 import Link from "next/link";
 
