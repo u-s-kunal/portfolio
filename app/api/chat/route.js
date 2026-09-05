@@ -377,11 +377,11 @@ ${question}
       },
     });
   } catch (error) {
-    console.error("Chat API error:", error);
+    console.error("CHAT ERROR:", error);
 
     return Response.json(
       {
-        error: "Something went wrong while processing your question.",
+        error: error instanceof Error ? error.message : String(error),
       },
       { status: 500 },
     );
