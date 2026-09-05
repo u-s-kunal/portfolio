@@ -208,7 +208,7 @@ export default function ChatWidget() {
       className="
         pointer-events-auto
         absolute
-        bottom-26
+        bottom-6
         right-5
         flex
         h-16
