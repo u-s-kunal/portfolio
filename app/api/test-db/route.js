@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import connectDB from "@/lib/mongoose";
+import connectDB from "../../../lib/mongoose.js";
 
 export async function GET() {
   try {
