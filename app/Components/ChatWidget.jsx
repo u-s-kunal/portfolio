@@ -15,8 +15,19 @@ export default function ChatWidget() {
   ]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const sendMessage = async () => {
-    const trimmedQuestion = question.trim();
+  // Suggested questions
+  const suggestedQuestions = [
+    "What projects has Kunal built?",
+    "Tell me about SkyTube",
+    "Tell me about Kartenity",
+    "What technologies does Kunal use?",
+    "What certifications does Kunal have?",
+    "Tell me about Kunal's education",
+    "What is Kunal currently learning?",
+  ];
+
+  const sendMessage = async (questionText = question) => {
+    const trimmedQuestion = questionText.trim();
 
     if (!trimmedQuestion || isLoading) {
       return;
@@ -200,119 +211,110 @@ export default function ChatWidget() {
       ===================================================== */}
 
       {!isOpen && (
-  <div className="fixed inset-0 z-[2147483647] pointer-events-none">
-    <button
-      type="button"
-      onClick={() => setIsOpen(true)}
-      aria-label="Open portfolio AI assistant"
-      className="
-        pointer-events-auto
-        absolute
-        bottom-6
-        right-5
-        flex
-        h-16
-        w-16
-        items-center
-        justify-center
+        <div className="fixed inset-0 z-[2147483647] pointer-events-none">
+          <button
+            type="button"
+            onClick={() => setIsOpen(true)}
+            aria-label="Open portfolio AI assistant"
+            className="
+              pointer-events-auto
+              absolute
+              bottom-6
+              right-5
+              flex
+              h-16
+              w-16
+              items-center
+              justify-center
+              rounded-full
+              border-2
+              border-white/30
+              bg-gradient-to-br
+              from-red-500
+              via-red-500
+              to-purple-600
+              text-white
+              shadow-[0_0_20px_rgba(239,68,68,0.7),0_0_40px_rgba(147,51,234,0.4)]
+              transition-all
+              duration-300
+              hover:scale-110
+              active:scale-95
+              sm:bottom-6
+              sm:right-6
+            "
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              className="relative z-10 h-8 w-8"
+            >
+              <path
+                strokeLinecap="round"
+                d="M12 3v2"
+              />
 
-        rounded-full
+              <circle
+                cx="12"
+                cy="2.5"
+                r="1"
+                fill="currentColor"
+                stroke="none"
+              />
 
-        border-2
-        border-white/30
+              <rect
+                x="4"
+                y="6"
+                width="16"
+                height="13"
+                rx="4"
+              />
 
-        bg-gradient-to-br
-        from-red-500
-        via-red-500
-        to-purple-600
+              <circle
+                cx="9"
+                cy="12"
+                r="1"
+                fill="currentColor"
+                stroke="none"
+              />
 
-        text-white
+              <circle
+                cx="15"
+                cy="12"
+                r="1"
+                fill="currentColor"
+                stroke="none"
+              />
 
-        shadow-[0_0_20px_rgba(239,68,68,0.7),0_0_40px_rgba(147,51,234,0.4)]
+              <path
+                strokeLinecap="round"
+                d="M9 16h6"
+              />
 
-        transition-all
-        duration-300
+              <path
+                strokeLinecap="round"
+                d="M4 11H2.5M21.5 11H20"
+              />
+            </svg>
 
-        hover:scale-110
-        active:scale-95
-
-        sm:bottom-6
-        sm:right-6
-      "
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        className="relative z-10 h-8 w-8"
-      >
-        <path
-          strokeLinecap="round"
-          d="M12 3v2"
-        />
-
-        <circle
-          cx="12"
-          cy="2.5"
-          r="1"
-          fill="currentColor"
-          stroke="none"
-        />
-
-        <rect
-          x="4"
-          y="6"
-          width="16"
-          height="13"
-          rx="4"
-        />
-
-        <circle
-          cx="9"
-          cy="12"
-          r="1"
-          fill="currentColor"
-          stroke="none"
-        />
-
-        <circle
-          cx="15"
-          cy="12"
-          r="1"
-          fill="currentColor"
-          stroke="none"
-        />
-
-        <path
-          strokeLinecap="round"
-          d="M9 16h6"
-        />
-
-        <path
-          strokeLinecap="round"
-          d="M4 11H2.5M21.5 11H20"
-        />
-      </svg>
-
-      {/* Notification dot */}
-      <span
-        className="
-          absolute
-          right-0.5
-          top-1
-          h-3
-          w-3
-          rounded-full
-          border-2
-          border-white
-          bg-green-400
-        "
-      />
-    </button>
-  </div>
-)}
+            <span
+              className="
+                absolute
+                right-0.5
+                top-1
+                h-3
+                w-3
+                rounded-full
+                border-2
+                border-white
+                bg-green-400
+              "
+            />
+          </button>
+        </div>
+      )}
 
       {/* =====================================================
           CHAT WINDOW
@@ -321,15 +323,19 @@ export default function ChatWidget() {
       {isOpen && (
         <div
           className="
-            fixed z-[9999]
-            bottom-3 left-3 right-3
+            fixed
+            z-[9999]
+            bottom-3
+            left-3
+            right-3
             flex
             h-[calc(100dvh-6rem)]
             max-h-[680px]
             flex-col
             overflow-hidden
             rounded-2xl
-            border border-red-200/20
+            border
+            border-red-200/20
             bg-white
             shadow-[0_20px_60px_rgba(0,0,0,0.35)]
 
@@ -354,19 +360,23 @@ export default function ChatWidget() {
               from-red-500
               via-red-500
               to-purple-600
-              px-4 py-4
+              px-4
+              py-4
               text-white
             "
           >
             <div className="flex min-w-0 items-center gap-3">
-              {/* Small Robot Icon */}
-
               <div
                 className="
-                  flex h-10 w-10 shrink-0
-                  items-center justify-center
+                  flex
+                  h-10
+                  w-10
+                  shrink-0
+                  items-center
+                  justify-center
                   rounded-xl
-                  border border-white/20
+                  border
+                  border-white/20
                   bg-white/15
                   backdrop-blur-sm
                 "
@@ -438,16 +448,17 @@ export default function ChatWidget() {
               </div>
             </div>
 
-            {/* Close Button */}
-
             <button
               type="button"
               onClick={() => setIsOpen(false)}
               className="
                 ml-3
-                flex h-9 w-9
+                flex
+                h-9
+                w-9
                 shrink-0
-                items-center justify-center
+                items-center
+                justify-center
                 rounded-lg
                 text-xl
                 text-white/80
@@ -477,6 +488,52 @@ export default function ChatWidget() {
               sm:p-4
             "
           >
+            {/* Suggested Questions */}
+
+            {!isLoading && (
+              <div className="mb-4">
+                <p className="mb-2 px-1 text-xs font-medium text-gray-500">
+                  Try asking
+                </p>
+
+                <div className="flex flex-col gap-2">
+                  {suggestedQuestions.map((suggestion) => (
+                    <button
+                      key={suggestion}
+                      type="button"
+                      onClick={() => sendMessage(suggestion)}
+                      disabled={isLoading}
+                      className="
+                        w-full
+                        rounded-xl
+                        border
+                        border-red-100
+                        bg-white
+                        px-3
+                        py-2.5
+                        text-left
+                        text-xs
+                        text-gray-700
+                        shadow-sm
+                        transition-all
+                        duration-200
+                        hover:border-red-300
+                        hover:bg-red-50
+                        hover:text-red-600
+                        active:scale-[0.99]
+                        disabled:cursor-not-allowed
+                        disabled:opacity-50
+                      "
+                    >
+                      {suggestion}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Messages */}
+
             {messages.map((message, index) => {
               const isUser = message.role === "user";
 
@@ -492,7 +549,8 @@ export default function ChatWidget() {
                       max-w-[92%]
                       break-words
                       rounded-2xl
-                      px-3.5 py-3
+                      px-3.5
+                      py-3
                       text-[13px]
                       leading-relaxed
                       sm:max-w-[90%]
@@ -579,7 +637,8 @@ export default function ChatWidget() {
                               className="
                                 rounded
                                 bg-gray-100
-                                px-1.5 py-0.5
+                                px-1.5
+                                py-0.5
                                 text-[11px]
                                 text-red-600
                               "
@@ -605,9 +664,11 @@ export default function ChatWidget() {
                   className="
                     rounded-2xl
                     rounded-bl-md
-                    border border-gray-200
+                    border
+                    border-gray-200
                     bg-white
-                    px-4 py-3
+                    px-4
+                    py-3
                     shadow-sm
                   "
                 >
@@ -657,7 +718,8 @@ export default function ChatWidget() {
                   border
                   border-gray-300
                   bg-gray-50
-                  px-3 py-2.5
+                  px-3
+                  py-2.5
                   text-sm
                   text-gray-900
                   outline-none
@@ -673,11 +735,12 @@ export default function ChatWidget() {
 
               <button
                 type="button"
-                onClick={sendMessage}
+                onClick={() => sendMessage()}
                 disabled={!question.trim() || isLoading}
                 className="
                   flex
-                  h-10 w-10
+                  h-10
+                  w-10
                   shrink-0
                   items-center
                   justify-center
