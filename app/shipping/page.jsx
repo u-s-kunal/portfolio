@@ -1,43 +1,89 @@
+
 import React from "react";
 
 const ShippingPage = () => {
   return (
-    <div className="max-w-3xl mx-auto px-4 py-10 text-white">
-      <h1 className="text-3xl font-bold mb-4 text-yellow-400">
-        Shipping & Delivery Policy
-      </h1>
+    <main className="policy-page">
+      <div className="policy-container">
 
-      <p className="mb-4">
-        At <strong>codewithkunal.in</strong>, we currently do not offer any
-        physical products. All our offerings are digital in nature — including
-        content, support services, or donations.
-      </p>
+        <header className="policy-header">
+          <span className="policy-label">POLICY</span>
 
-      <h2 className="text-xl font-semibold mt-6 mb-2">1. Digital Delivery</h2>
-      <p className="mb-4">
-        Once a donation or payment is successfully completed, you may receive a
-        confirmation message or email. No physical shipping or delivery is
-        applicable.
-      </p>
+          <h1>Shipping & Delivery Policy</h1>
 
-      <h2 className="text-xl font-semibold mt-6 mb-2">
-        2. No Shipping Charges
-      </h2>
-      <p className="mb-4">
-        As we do not ship physical goods, there are no shipping fees or
-        logistics involved.
-      </p>
+          <p>
+            This policy explains how delivery is handled for the digital
+            offerings and support payments available through this website.
+          </p>
+        </header>
 
-      <h2 className="text-xl font-semibold mt-6 mb-2">3. Contact Us</h2>
-      <p className="mb-4">
-        If you have any questions regarding digital access or support after
-        payment, feel free to reach out to us at{" "}
-        <strong>developerkunal01@gmail.com</strong>.
-      </p>
+        <div className="policy-divider" />
 
-      <p className="mt-6 text-sm text-gray-400">Last updated: June 24, 2025</p>
-    </div>
+        <article className="policy-content">
+
+          <section className="policy-section">
+            <span className="policy-number">01</span>
+
+            <div>
+              <h2>Digital Delivery</h2>
+
+              <p>
+                At <strong>codewithkunal.in</strong>, we currently do not offer
+                physical products. Our offerings are digital in nature,
+                including content, support services, and donations.
+              </p>
+
+              <p>
+                Once a donation or payment is successfully completed, you may
+                receive a confirmation message or email. No physical shipping
+                or delivery is applicable.
+              </p>
+            </div>
+          </section>
+
+          <section className="policy-section">
+            <span className="policy-number">02</span>
+
+            <div>
+              <h2>No Shipping Charges</h2>
+
+              <p>
+                Since we do not ship physical goods, there are no shipping fees,
+                courier charges, or logistics costs associated with payments
+                made through this website.
+              </p>
+            </div>
+          </section>
+
+          <section className="policy-section">
+            <span className="policy-number">03</span>
+
+            <div>
+              <h2>Contact Us</h2>
+
+              <p>
+                If you have any questions regarding digital access,
+                confirmation of payment, or support after completing a
+                transaction, please contact us at{" "}
+                <a href="mailto:developerkunal01@gmail.com">
+                  developerkunal01@gmail.com
+                </a>
+                .
+              </p>
+            </div>
+          </section>
+
+        </article>
+
+        <footer className="policy-footer">
+          <span>Last updated</span>
+          <time dateTime="2025-06-24">June 24, 2025</time>
+        </footer>
+
+      </div>
+    </main>
   );
 };
 
 export default ShippingPage;
+

@@ -1,30 +1,54 @@
+
 import React from "react";
+import Link from "next/link";
 
 export default function ForgotPassword() {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-800">
-      <div className="b p-8 rounded-2xl bg-gray-600 shadow-md w-full max-w-sm">
-        <h2 className="text-2xl font-bold mb-6 text-center ">Reset Password</h2>
-        <form>
-          <div className="mb-4">
-            <label className="block text-sm font-medium mb-1" htmlFor="email">
+    <main className="auth-page">
+      <div className="forgot-container">
+
+        <div className="forgot-header">
+          <span className="auth-label">ACCOUNT RECOVERY</span>
+
+          <h1>Reset Password</h1>
+
+          <p>
+            Enter the email address associated with your account
+            and we&apos;ll send you a link to reset your password.
+          </p>
+        </div>
+
+        <form className="forgot-form">
+          <div className="form-field">
+            <label htmlFor="reset-email">
               Email
             </label>
+
             <input
               type="email"
-              id="email"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              id="reset-email"
               placeholder="Enter your registered email"
+              autoComplete="email"
+              required
             />
           </div>
+
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-200"
+            className="login-button"
           >
             Send Reset Link
           </button>
         </form>
+
+        <div className="forgot-back">
+          <Link href="/login">
+            ← Back to Login
+          </Link>
+        </div>
+
       </div>
-    </div>
+    </main>
   );
 }
+

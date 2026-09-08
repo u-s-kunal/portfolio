@@ -1,5 +1,8 @@
+
 "use client";
+
 import React, { useState } from "react";
+import Link from "next/link";
 
 export default function SignupPage() {
   const [formData, setFormData] = useState({
@@ -9,63 +12,109 @@ export default function SignupPage() {
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     alert("Signup successful!");
     console.log(formData);
-    setFormData({ name: "", email: "", password: "" });
+
+    setFormData({
+      name: "",
+      email: "",
+      password: "",
+    });
   };
 
   return (
-    <div className="h-[130vh] bg-cover bg-center bg-[url('https://source.unsplash.com/1600x900/?abstract,tech')] flex flex-col">
-      <div className="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#20e_100%)]"></div>
+    <main className="auth-page">
+      <div className="signup-container">
+        <div className="signup-header">
+          <span className="auth-label">CREATE ACCOUNT</span>
 
-      {/* Content */}
-      <div className="flex-grow flex items-center justify-center">
-        <div className="bg-white/20 backdrop-blur-md p-10 rounded-2xl shadow-lg w-full max-w-md text-white">
-          <p className="font-light text-4xl sm:text-3xl m-6 text-center text-shadow-md tilt-neon text-white">
-            Sign Up
+          <h1>Sign Up</h1>
+
+          <p>
+            Create an account to get started.
           </p>
-          <form onSubmit={handleSubmit} className="space-y-5">
+        </div>
+
+        <form
+          onSubmit={handleSubmit}
+          className="signup-form"
+        >
+          <div className="form-field">
+            <label htmlFor="name">
+              Full Name
+            </label>
+
             <input
               type="text"
+              id="name"
               name="name"
-              placeholder="Full Name"
+              placeholder="Enter your full name"
               value={formData.name}
               onChange={handleChange}
+              autoComplete="name"
               required
-              className="w-full p-3 rounded-xl bg-white/30 placeholder-white focus:outline-none"
             />
+          </div>
+
+          <div className="form-field">
+            <label htmlFor="signup-email">
+              Email
+            </label>
+
             <input
               type="email"
+              id="signup-email"
               name="email"
-              placeholder="Email"
+              placeholder="Enter your email"
               value={formData.email}
               onChange={handleChange}
+              autoComplete="email"
               required
-              className="w-full p-3 rounded-xl bg-white/30 placeholder-white focus:outline-none"
             />
+          </div>
+
+          <div className="form-field">
+            <label htmlFor="signup-password">
+              Password
+            </label>
+
             <input
               type="password"
+              id="signup-password"
               name="password"
-              placeholder="Password"
+              placeholder="Create a password"
               value={formData.password}
               onChange={handleChange}
+              autoComplete="new-password"
               required
-              className="w-full p-3 rounded-xl bg-white/30 placeholder-white focus:outline-none"
             />
-            <button
-              type="submit"
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold transition"
-            >
-              Create Account
-            </button>
-          </form>
-        </div>
+          </div>
+
+          <button
+            type="submit"
+            className="login-button"
+          >
+            Create Account
+          </button>
+        </form>
+
+        <p className="signup-footer">
+          Already have an account?{" "}
+          <Link href="/login">
+            Sign in
+          </Link>
+        </p>
       </div>
-    </div>
+    </main>
   );
 }
+
